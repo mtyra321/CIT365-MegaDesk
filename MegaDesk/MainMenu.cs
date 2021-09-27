@@ -12,8 +12,15 @@ namespace MegaDesk
 {
     public partial class MainMenu : Form
     {
+        AddQuote addForm = new AddQuote();
+        ViewAllQuotes viewForm = new ViewAllQuotes();
+        DisplayQuote displayForm = new DisplayQuote();
+        SearchQuotes searchForm = new SearchQuotes();
+       // MainMenu mainForm = new MainMenu();
         public MainMenu()
         {
+            
+
             InitializeComponent();
         }
 
@@ -21,5 +28,31 @@ namespace MegaDesk
         {
 
         }
+
+   
+
+        private void addQuoteBtn_Click(object sender, EventArgs e)
+        {
+            addForm.Show();
+            this.Hide();
+        }
+        private void viewQuoteBtn_Click(object sender, EventArgs e)
+        {
+            viewForm.Show();
+            this.Hide();
+        }
+
+        private void searchQuotesBtn_Click(object sender, EventArgs e)
+        {
+            searchForm.Show();
+            this.Hide();
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
     }
 }
