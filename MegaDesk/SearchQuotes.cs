@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MegaDesk
 {
-    public partial class AddQuote : Form
+    public partial class SearchQuotes : Form
     {
-        public AddQuote()
+        public SearchQuotes()
         {
             InitializeComponent();
         }

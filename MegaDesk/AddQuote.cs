@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace MegaDesk
 {
-    public partial class Form1 : Form
+    public partial class AddQuote : Form
     {
-        public Form1()
+        public AddQuote()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
