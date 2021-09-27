@@ -17,9 +17,81 @@ namespace MegaDesk
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        Desk desk;
+
+        private void AddQuote_Load(object sender, EventArgs e)
         {
 
         }
+        private void buildDeskBtn_Click(object sender, EventArgs e)
+        {
+            desk = new Desk((int)widthInput.Value, (int)depthInput.Value, (int)drawersInput.Value,woodTypes.Text);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void widthInput_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void depthInput_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void drawersInput_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }
