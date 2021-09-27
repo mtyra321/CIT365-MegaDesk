@@ -17,21 +17,30 @@ namespace MegaDesk
             InitializeComponent();
         }
 
-        Desk desk;
+        public Desk desk;
+
+        public Desk Desk { get => desk; set => desk = value; }
+
+        //   internal Desk Desk { get => desk; set => desk = value; }
+
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
 
         }
-        private void buildDeskBtn_Click(object sender, EventArgs e)
+        public  void buildDeskBtn_Click(object sender, EventArgs e)
         {
             desk = new Desk((int)widthInput.Value, (int)depthInput.Value, (int)drawersInput.Value,woodTypes.Text);
-
+            
         }
 
+        public Desk GetDesk()
+        {
+            return desk;
+        }
+      
 
-
-
+     
 
 
 
