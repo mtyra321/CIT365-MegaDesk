@@ -34,22 +34,23 @@ namespace MegaDesk
 
             int prodTime =Convert.ToInt32(prod.Text);
             String customerName =nameInput.Text;
+            DisplayQuote d = new DisplayQuote(desk, customerName, prodTime);
+            this.Hide();
+            d.Show();
         }
 
         public Desk GetDesk()
         {
             return desk;
         }
-      
-
-     
 
 
-
-
-
-
-
+        private void AddQuote_FormClosed(object sender, EventArgs e)
+        {
+            MainMenu mainForm = new MainMenu();
+            this.Hide();
+           mainForm.Show();
+        }
 
 
 
@@ -77,7 +78,14 @@ namespace MegaDesk
 
 
 
-  private void label1_Click(object sender, EventArgs e)
+
+
+
+
+
+
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -105,6 +113,17 @@ namespace MegaDesk
 
         private void prod_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void prod_Click(object sender, EventArgs e)
+        {
+            prod.DroppedDown = true;
+        }
+
+        private void woodTypes_Click(object sender, EventArgs e)
+        {
+            woodTypes.DroppedDown = true;
 
         }
     }

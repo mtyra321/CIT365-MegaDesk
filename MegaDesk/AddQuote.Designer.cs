@@ -33,8 +33,8 @@ namespace MegaDesk
             this.widthInput = new System.Windows.Forms.NumericUpDown();
             this.depthInput = new System.Windows.Forms.NumericUpDown();
             this.drawersInput = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.woodTypes = new System.Windows.Forms.Label();
+            this.woodTypes = new System.Windows.Forms.ComboBox();
+            this.matTypes = new System.Windows.Forms.Label();
             this.widthLabel = new System.Windows.Forms.Label();
             this.depthLabel = new System.Windows.Forms.Label();
             this.drawerLabel = new System.Windows.Forms.Label();
@@ -118,30 +118,31 @@ namespace MegaDesk
             this.drawersInput.TabIndex = 4;
             this.drawersInput.ValueChanged += new System.EventHandler(this.drawersInput_ValueChanged);
             // 
-            // comboBox1
+            // woodTypes
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.woodTypes.FormattingEnabled = true;
+            this.woodTypes.Items.AddRange(new object[] {
             "Oak",
             "Laminate",
             "Pine",
             "Rosewood",
             "Veneer"});
-            this.comboBox1.Location = new System.Drawing.Point(518, 84);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // woodTypes
-            // 
-            this.woodTypes.AutoSize = true;
-            this.woodTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.woodTypes.Location = new System.Drawing.Point(255, 84);
+            this.woodTypes.Location = new System.Drawing.Point(518, 84);
             this.woodTypes.Name = "woodTypes";
-            this.woodTypes.Size = new System.Drawing.Size(133, 24);
-            this.woodTypes.TabIndex = 7;
-            this.woodTypes.Text = "Material Type: ";
+            this.woodTypes.Size = new System.Drawing.Size(100, 21);
+            this.woodTypes.TabIndex = 6;
+            this.woodTypes.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.woodTypes.Click += new System.EventHandler(this.woodTypes_Click);
+            // 
+            // matTypes
+            // 
+            this.matTypes.AutoSize = true;
+            this.matTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matTypes.Location = new System.Drawing.Point(255, 84);
+            this.matTypes.Name = "matTypes";
+            this.matTypes.Size = new System.Drawing.Size(133, 24);
+            this.matTypes.TabIndex = 7;
+            this.matTypes.Text = "Material Type: ";
             // 
             // widthLabel
             // 
@@ -207,6 +208,7 @@ namespace MegaDesk
             this.prod.Size = new System.Drawing.Size(100, 21);
             this.prod.TabIndex = 13;
             this.prod.SelectedIndexChanged += new System.EventHandler(this.prod_SelectedIndexChanged);
+            this.prod.Click += new System.EventHandler(this.prod_Click);
             // 
             // nameLabel
             // 
@@ -239,14 +241,15 @@ namespace MegaDesk
             this.Controls.Add(this.drawerLabel);
             this.Controls.Add(this.depthLabel);
             this.Controls.Add(this.widthLabel);
+            this.Controls.Add(this.matTypes);
             this.Controls.Add(this.woodTypes);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.drawersInput);
             this.Controls.Add(this.depthInput);
             this.Controls.Add(this.widthInput);
             this.Controls.Add(this.label1);
             this.Name = "AddQuote";
             this.Text = "AddQuote";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
             this.Load += new System.EventHandler(this.AddQuote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.widthInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthInput)).EndInit();
@@ -262,8 +265,8 @@ namespace MegaDesk
         private System.Windows.Forms.NumericUpDown widthInput;
         private System.Windows.Forms.NumericUpDown depthInput;
         private System.Windows.Forms.NumericUpDown drawersInput;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label woodTypes;
+        private System.Windows.Forms.ComboBox woodTypes;
+        private System.Windows.Forms.Label matTypes;
         private System.Windows.Forms.Label widthLabel;
         private System.Windows.Forms.Label depthLabel;
         private System.Windows.Forms.Label drawerLabel;

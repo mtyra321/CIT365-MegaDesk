@@ -97,7 +97,6 @@ namespace MegaDesk
         }
         public void calcPrice()
         {
-            int price = 200;
              shippingPrice= calcShippingPrice();
              drawerPrice= (50*desk.DrawerNum);
             if(desk.SurfaceArea > 1000)
@@ -109,7 +108,7 @@ namespace MegaDesk
             {
                 surfaceAreaPrice = 0;
             }
-            totalCost= price + shippingPrice + drawerPrice + surfaceAreaPrice;
+            totalCost= 200 + shippingPrice + drawerPrice + surfaceAreaPrice;
         }
     }
 }

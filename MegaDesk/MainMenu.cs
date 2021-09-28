@@ -14,9 +14,12 @@ namespace MegaDesk
     {
         AddQuote addForm = new AddQuote();
         ViewAllQuotes viewForm = new ViewAllQuotes();
-        DisplayQuote displayForm = new DisplayQuote();
         SearchQuotes searchForm = new SearchQuotes();
-       // MainMenu mainForm = new MainMenu();
+
+        public AddQuote AddForm { get => addForm; set => addForm = value; }
+        public ViewAllQuotes ViewForm { get => viewForm; set => viewForm = value; }
+        public SearchQuotes SearchForm { get => searchForm; set => searchForm = value; }
+
         public MainMenu()
         {
             
