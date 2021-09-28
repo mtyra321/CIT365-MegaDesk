@@ -31,7 +31,9 @@ namespace MegaDesk
         public  void buildDeskBtn_Click(object sender, EventArgs e)
         {
             desk = new Desk((int)widthInput.Value, (int)depthInput.Value, (int)drawersInput.Value,woodTypes.Text);
-            
+
+            int prodTime =Convert.ToInt32(prod.Text);
+            String customerName =nameInput.Text;
         }
 
         public Desk GetDesk()
@@ -101,6 +103,9 @@ namespace MegaDesk
 
         }
 
-      
+        private void prod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
