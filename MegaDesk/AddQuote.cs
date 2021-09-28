@@ -21,19 +21,21 @@ namespace MegaDesk
 
         public Desk Desk { get => desk; set => desk = value; }
 
-        //   internal Desk Desk { get => desk; set => desk = value; }
 
 
-        private void AddQuote_Load(object sender, EventArgs e)
-        {
-
-        }
+      
         public  void buildDeskBtn_Click(object sender, EventArgs e)
         {
             desk = new Desk((int)widthInput.Value, (int)depthInput.Value, (int)drawersInput.Value,woodTypes.Text);
-
+            String customerName = "";
             int prodTime =Convert.ToInt32(prod.Text);
-            String customerName =nameInput.Text;
+            try
+            {
+                 customerName = nameInput.Text;
+            }catch (Exception we) when (customerName == "")
+            {
+                throw;
+            }
             DisplayQuote d = new DisplayQuote(desk, customerName, prodTime);
             this.Hide();
             d.Show();
@@ -48,8 +50,9 @@ namespace MegaDesk
         private void AddQuote_FormClosed(object sender, EventArgs e)
         {
             MainMenu mainForm = new MainMenu();
-            this.Hide();
            mainForm.Show();
+            this.Hide();
+
         }
 
 

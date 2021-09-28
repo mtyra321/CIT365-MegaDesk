@@ -30,6 +30,7 @@ namespace MegaDesk
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.mainMenuBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -42,14 +43,27 @@ namespace MegaDesk
             this.label1.TabIndex = 1;
             this.label1.Text = "View All Quotes";
             // 
+            // mainMenuBtn
+            // 
+            this.mainMenuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainMenuBtn.Location = new System.Drawing.Point(79, 78);
+            this.mainMenuBtn.Name = "mainMenuBtn";
+            this.mainMenuBtn.Size = new System.Drawing.Size(175, 65);
+            this.mainMenuBtn.TabIndex = 3;
+            this.mainMenuBtn.Text = "Main Menu";
+            this.mainMenuBtn.UseVisualStyleBackColor = true;
+            this.mainMenuBtn.Click += new System.EventHandler(this.mainMenuBtn_Click);
+            // 
             // ViewAllQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mainMenuBtn);
             this.Controls.Add(this.label1);
             this.Name = "ViewAllQuotes";
             this.Text = "ViewAllQuotes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewAllQuotes_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -58,5 +72,6 @@ namespace MegaDesk
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button mainMenuBtn;
     }
 }

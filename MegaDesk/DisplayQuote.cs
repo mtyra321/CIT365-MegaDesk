@@ -41,7 +41,8 @@ namespace MegaDesk
             prodTime.Text = quote.ProductionTime.ToString() + " days";
             drawerPrice.Text = "$ "+ quote.DrawerPrice.ToString();
             materialPrice.Text = "$ " + quote.MaterialPrice.ToString();
-            prodPrice.Text = "$ " + quote.DrawerPrice.ToString();
+            prodPrice.Text = "$ " + quote.ShippingPrice.ToString();
+
             surfaceAreaPrice.Text = "$ " + quote.SurfaceAreaPrice.ToString();
             totalPrice.Text = "$ " + quote.TotalCost.ToString();
 

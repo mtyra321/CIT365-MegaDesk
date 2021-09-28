@@ -56,6 +56,9 @@ namespace MegaDesk
             this.Close();
         }
 
-
+        private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

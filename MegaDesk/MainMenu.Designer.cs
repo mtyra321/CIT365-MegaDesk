@@ -90,6 +90,7 @@ namespace MegaDesk
             this.Controls.Add(this.addQuoteBtn);
             this.Name = "MainMenu";
             this.Text = "MainMenu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 

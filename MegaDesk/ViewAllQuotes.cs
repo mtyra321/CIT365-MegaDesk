@@ -16,5 +16,19 @@ namespace MegaDesk
         {
             InitializeComponent();
         }
+
+        private void mainMenuBtn_Click(object sender, EventArgs e)
+        {
+            MainMenu mainForm = new MainMenu();
+            this.Hide();
+            mainForm.Show();
+        }
+
+        private void ViewAllQuotes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainMenu mainForm = new MainMenu();
+            this.Close();
+            mainForm.Show();
+        }
     }
 }

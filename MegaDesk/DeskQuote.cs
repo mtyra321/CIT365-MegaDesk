@@ -108,7 +108,7 @@ namespace MegaDesk
             {
                 surfaceAreaPrice = 0;
             }
-            totalCost= 200 + shippingPrice + drawerPrice + surfaceAreaPrice;
+            totalCost= 200 + shippingPrice + drawerPrice + surfaceAreaPrice + materialPrice;
         }
     }
 }
