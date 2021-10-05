@@ -32,4 +32,13 @@ namespace MegaDesk
         public int SurfaceArea { get => surfaceArea; set => surfaceArea = value; }
      
     }
+
+    public enum DesktopMaterial
+    {
+        Oak,
+        Laminate,
+        Pine,
+        Rosewood,
+        Veneer
+    }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+
 
 namespace MegaDesk
 {
@@ -29,12 +31,11 @@ namespace MegaDesk
 
         public void DisplayQuote_Load(object sender, EventArgs e)
         {
-           // desk = AddQuote.desk;
+            name.Text = customerName;
             MaterialValue.Text = desk.SurfaceMaterial;
             widthValue.Text = desk.Width.ToString();
             depthValue.Text = desk.Depth.ToString();
             drawersValue.Text = desk.DrawerNum.ToString();
-           // surfaceAreaLabel.Text = desk.SurfaceArea.ToString();
            
             quote = new DeskQuote(desk, productionTime, customerName);
             quote.calcPrice();
@@ -49,6 +50,43 @@ namespace MegaDesk
 
         }
 
+        private void DisplayQuote_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainMenu mainForm = new MainMenu();
+            mainForm.Show();
+            this.Hide();
+        }
 
+        private void saveQuoteBtn_Click(object sender, EventArgs e)
+        {
+            var jsonData = System.IO.File.ReadAllText(@"quotes.json");
+            List<DeskQuote> deskQuoteList;
+            if (jsonData.Length == 0)
+            {
+                deskQuoteList = new List<DeskQuote>();
+            }
+            else
+            {
+                //deskQuoteList = JsonConvert.DeserializeObject<List<DeskQuote>>(jsonData)
+                //         ?? new List<DeskQuote>();
+                deskQuoteList = JsonConvert.DeserializeObject<List<DeskQuote>>(jsonData);
+
+
+               
+
+                // read JSON directly from a file
+                //using (StreamReader file = File.OpenText(@"c:\videogames.json"))
+                //using (JsonTextReader reader = new JsonTextReader(file))
+                //{
+                //    JObject o2 = (JObject)JToken.ReadFrom(reader);
+                //}
+            }
+            deskQuoteList.Add(quote);
+
+            string json = JsonConvert.SerializeObject(deskQuoteList.ToArray());
+
+            //write string to file
+            System.IO.File.WriteAllText(@"quotes.json", json);
+        }
     }
 }

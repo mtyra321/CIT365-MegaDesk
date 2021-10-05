@@ -29,13 +29,13 @@ namespace MegaDesk
             desk = new Desk((int)widthInput.Value, (int)depthInput.Value, (int)drawersInput.Value,woodTypes.Text);
             String customerName = "";
             int prodTime =Convert.ToInt32(prod.Text);
-            try
-            {
+            //try
+            //{
                  customerName = nameInput.Text;
-            }catch (Exception we) when (customerName == "")
-            {
-                throw;
-            }
+            //}catch (Exception we) when (customerName == "")
+            //{
+            //    throw;
+            //}
             DisplayQuote d = new DisplayQuote(desk, customerName, prodTime);
             this.Hide();
             d.Show();
@@ -128,6 +128,12 @@ namespace MegaDesk
         {
             woodTypes.DroppedDown = true;
 
+        }
+
+        private void AddQuote_Load(object sender, EventArgs e)
+        {
+            prod.Text = "14";
+            woodTypes.Text = "Oak";
         }
     }
 }

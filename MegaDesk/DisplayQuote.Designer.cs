@@ -32,7 +32,7 @@ namespace MegaDesk
             this.drawerLabel = new System.Windows.Forms.Label();
             this.surfaceAreaLabel = new System.Windows.Forms.Label();
             this.woodTypes = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
             this.widthValue = new System.Windows.Forms.Label();
             this.MaterialValue = new System.Windows.Forms.Label();
             this.depthValue = new System.Windows.Forms.Label();
@@ -45,6 +45,8 @@ namespace MegaDesk
             this.prodTime = new System.Windows.Forms.Label();
             this.prodPrice = new System.Windows.Forms.Label();
             this.x = new System.Windows.Forms.Label();
+            this.name = new System.Windows.Forms.Label();
+            this.saveQuoteBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // drawerLabel
@@ -77,15 +79,15 @@ namespace MegaDesk
             this.woodTypes.TabIndex = 12;
             this.woodTypes.Text = "Material Type: ";
             // 
-            // label2
+            // nameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(57, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 26);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Your Desk:";
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Location = new System.Drawing.Point(57, 42);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(136, 26);
+            this.nameLabel.TabIndex = 11;
+            this.nameLabel.Text = "Your Name: ";
             // 
             // widthValue
             // 
@@ -207,11 +209,34 @@ namespace MegaDesk
             this.x.TabIndex = 28;
             this.x.Text = "X";
             // 
+            // name
+            // 
+            this.name.AutoSize = true;
+            this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.Location = new System.Drawing.Point(212, 42);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(136, 26);
+            this.name.TabIndex = 29;
+            this.name.Text = "Your Name: ";
+            // 
+            // saveQuoteBtn
+            // 
+            this.saveQuoteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveQuoteBtn.Location = new System.Drawing.Point(550, 341);
+            this.saveQuoteBtn.Name = "saveQuoteBtn";
+            this.saveQuoteBtn.Size = new System.Drawing.Size(175, 65);
+            this.saveQuoteBtn.TabIndex = 30;
+            this.saveQuoteBtn.Text = "Save Quote";
+            this.saveQuoteBtn.UseVisualStyleBackColor = true;
+            this.saveQuoteBtn.Click += new System.EventHandler(this.saveQuoteBtn_Click);
+            // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.saveQuoteBtn);
+            this.Controls.Add(this.name);
             this.Controls.Add(this.x);
             this.Controls.Add(this.prodPrice);
             this.Controls.Add(this.prodTime);
@@ -227,9 +252,10 @@ namespace MegaDesk
             this.Controls.Add(this.drawerLabel);
             this.Controls.Add(this.surfaceAreaLabel);
             this.Controls.Add(this.woodTypes);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.nameLabel);
             this.Name = "DisplayQuote";
             this.Text = "DisplayQuote";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DisplayQuote_FormClosed);
             this.Load += new System.EventHandler(this.DisplayQuote_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -241,7 +267,7 @@ namespace MegaDesk
         private System.Windows.Forms.Label drawerLabel;
         private System.Windows.Forms.Label surfaceAreaLabel;
         private System.Windows.Forms.Label woodTypes;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label widthValue;
         private System.Windows.Forms.Label MaterialValue;
         private System.Windows.Forms.Label depthValue;
@@ -254,5 +280,7 @@ namespace MegaDesk
         private System.Windows.Forms.Label prodTime;
         private System.Windows.Forms.Label prodPrice;
         private System.Windows.Forms.Label x;
+        private System.Windows.Forms.Label name;
+        private System.Windows.Forms.Button saveQuoteBtn;
     }
 }
