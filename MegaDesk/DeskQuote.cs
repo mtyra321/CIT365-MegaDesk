@@ -47,15 +47,14 @@ namespace MegaDesk
         }
 
         [Newtonsoft.Json.JsonConstructor]
-        public DeskQuote(int totalCost, int surfaceAreaPrice, int shippingPrice, int drawerPrice, int materialPrice, String datetime, string name, int productionTime, Desk desk)
+        public DeskQuote(int totalCost, int surfaceAreaPrice, int shippingPrice, int drawerPrice, int materialPrice, DateTime datetime, string name, int productionTime, Desk desk)
         {
             this.totalCost = totalCost;
             this.surfaceAreaPrice = surfaceAreaPrice;
             this.shippingPrice = shippingPrice;
             this.drawerPrice = drawerPrice;
             this.materialPrice = materialPrice;
-            //DateTime date = new DateTime(datetime);
-           // this.date = datetime;
+            this.date = datetime;
             customerName = name;
             this.productionTime = productionTime;
             this.desk = desk;
