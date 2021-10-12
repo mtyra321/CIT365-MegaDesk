@@ -12,9 +12,14 @@ namespace MegaDesk
 {
     public partial class AddQuote : Form
     {
-        public AddQuote()
+        private MainMenu main;
+
+        public AddQuote(MainMenu m)
         {
-            InitializeComponent();
+           InitializeComponent(); 
+            main = m;
+
+            
         }
 
         public Desk desk;
@@ -36,7 +41,7 @@ namespace MegaDesk
             //{
             //    throw;
             //}
-            DisplayQuote d = new DisplayQuote(desk, customerName, prodTime);
+            DisplayQuote d = new DisplayQuote(main, desk, customerName, prodTime);
             this.Hide();
             d.Show();
         }
@@ -49,8 +54,7 @@ namespace MegaDesk
 
         private void AddQuote_FormClosed(object sender, EventArgs e)
         {
-            MainMenu mainForm = new MainMenu();
-           mainForm.Show();
+            main.Show();
             this.Hide();
 
         }

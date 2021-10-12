@@ -8,46 +8,63 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.IO;
 
 
 namespace MegaDesk
 {
     public partial class ViewAllQuotes : Form
     {
-        public ViewAllQuotes()
+        private MainMenu main;
+        public ViewAllQuotes(MainMenu m)
         {
             InitializeComponent();
+            main = m;
+
         }
 
         private void mainMenuBtn_Click(object sender, EventArgs e)
         {
-            MainMenu mainForm = new MainMenu();
             this.Hide();
-            mainForm.Show();
+            main.Show();
         }
 
         private void ViewAllQuotes_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MainMenu mainForm = new MainMenu();
-            this.Close();
-            mainForm.Show();
+            this.Hide();
+            main.Show();
         }
 
         private void ViewAllQuotes_Load(object sender, EventArgs e)
         {
-            var jsonData = System.IO.File.ReadAllText(@"quotes.json");
-            List<DeskQuote> deskQuoteList;
-            if (jsonData.Length == 0)
+            var file = @"quotes.json";
+            if (File.Exists(file))
             {
-                deskQuoteList = new List<DeskQuote>();
+                using (StreamReader reader = new StreamReader(file))
+                {
 
-            }
-            else
-            {
-                deskQuoteList = JsonConvert.DeserializeObject<List<DeskQuote>>(jsonData);
-            }
-            quoteGrid.DataSource = deskQuoteList;
 
+
+                    string jsonData = reader.ReadToEnd();
+                    List<DeskQuote> deskQuoteList;
+
+                    deskQuoteList = JsonConvert.DeserializeObject<List<DeskQuote>>(jsonData);
+
+                    quoteGrid.DataSource = deskQuoteList.Select(d => new
+                    {
+                        Date = d.Date,
+                        Customer = d.CustomerName,
+                        Depth = d.Desk.Depth,
+                        Width = d.Desk.Width,
+                        Drawers = d.Desk.DrawerNum,
+                        SurfaceMaterial = d.Desk.SurfaceMaterial,
+                        DeliveryType = d.ProductionTime,
+                        QuoteAmount = d.TotalCost.ToString("c")
+
+                    }
+                    ).ToList();
+                }
+        }
         }
     }
 }

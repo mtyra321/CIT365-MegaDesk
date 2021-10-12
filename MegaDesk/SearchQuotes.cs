@@ -14,9 +14,14 @@ namespace MegaDesk
 {
     public partial class SearchQuotes : Form
     {
-        public SearchQuotes()
+        private MainMenu main;
+
+        public SearchQuotes(MainMenu m)
         {
+            
+
             InitializeComponent();
+            main = m;
         }
 
         private void SearchQuotes_Load(object sender, EventArgs e)
@@ -37,16 +42,14 @@ namespace MegaDesk
 
         private void mainMenuBtn_Click(object sender, EventArgs e)
         {
-            MainMenu mainForm = new MainMenu();
             this.Hide();
-            mainForm.Show();
+            main.Show();
         }
 
         private void SearchQuotes_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MainMenu mainForm = new MainMenu();
-            this.Close();
-            mainForm.Show();
+            this.Hide();
+            main.Show();
         }
     }
 }

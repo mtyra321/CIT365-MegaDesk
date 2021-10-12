@@ -12,10 +12,10 @@ namespace MegaDesk
 {
     public partial class MainMenu : Form
     {
-        AddQuote addForm = new AddQuote();
-        ViewAllQuotes viewForm = new ViewAllQuotes();
-        SearchQuotes searchForm = new SearchQuotes();
 
+        AddQuote addForm;
+        ViewAllQuotes viewForm;
+        SearchQuotes searchForm;
         public AddQuote AddForm { get => addForm; set => addForm = value; }
         public ViewAllQuotes ViewForm { get => viewForm; set => viewForm = value; }
         public SearchQuotes SearchForm { get => searchForm; set => searchForm = value; }
@@ -24,7 +24,10 @@ namespace MegaDesk
         {
             
 
-            InitializeComponent();
+            InitializeComponent(); 
+             addForm = new AddQuote(this);
+            viewForm = new ViewAllQuotes(this);
+            searchForm = new SearchQuotes(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)

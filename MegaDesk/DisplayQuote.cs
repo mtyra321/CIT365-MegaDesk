@@ -18,9 +18,12 @@ namespace MegaDesk
         DeskQuote quote;
         String customerName;
         int productionTime;
-        public DisplayQuote(Desk desk, String name, int time)
-        {            
+        MainMenu main;
+        public DisplayQuote(MainMenu m, Desk desk, String name, int time)
+        {
             InitializeComponent();
+            main = m;
+            
             customerName = name;
             productionTime = time;
             this.desk = desk;
@@ -75,8 +78,7 @@ namespace MegaDesk
 
             //write string to file
             System.IO.File.WriteAllText(@"quotes.json", json);
-            MainMenu mainForm = new MainMenu();
-            mainForm.Show();
+            main.Show();
             this.Hide();
         }
     }
