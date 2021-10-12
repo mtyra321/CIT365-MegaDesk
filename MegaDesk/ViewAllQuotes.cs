@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+
 
 namespace MegaDesk
 {
@@ -29,6 +31,23 @@ namespace MegaDesk
             MainMenu mainForm = new MainMenu();
             this.Close();
             mainForm.Show();
+        }
+
+        private void ViewAllQuotes_Load(object sender, EventArgs e)
+        {
+            var jsonData = System.IO.File.ReadAllText(@"quotes.json");
+            List<DeskQuote> deskQuoteList;
+            if (jsonData.Length == 0)
+            {
+                deskQuoteList = new List<DeskQuote>();
+
+            }
+            else
+            {
+                deskQuoteList = JsonConvert.DeserializeObject<List<DeskQuote>>(jsonData);
+            }
+            quoteGrid.DataSource = deskQuoteList;
+
         }
     }
 }

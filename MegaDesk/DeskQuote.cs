@@ -17,23 +17,25 @@ namespace MegaDesk
             { "Veneer", 125 },
         };
 
+        String customerName;
+        DateTime date;
         int totalCost;
         int surfaceAreaPrice;
         int shippingPrice;
         int drawerPrice;
         int materialPrice;
-        String customerName;
+        
         int productionTime;
         Desk desk;
-        DateTime date;
-
+        
+        public string CustomerName { get => customerName; set => customerName = value; }
+        public DateTime Date { get => date; set => date = value; }
         public int TotalCost { get => totalCost; set => totalCost = value; }
         public int SurfaceAreaPrice { get => surfaceAreaPrice; set => surfaceAreaPrice = value; }
         public int ShippingPrice { get => shippingPrice; set => shippingPrice = value; }
         public int DrawerPrice { get => drawerPrice; set => drawerPrice = value; }
         public int MaterialPrice { get => materialPrice; set => materialPrice = value; }
-        public DateTime Date { get => date; set => date = value; }
-        public string CustomerName { get => customerName; set => customerName = value; }
+       
         public int ProductionTime { get => productionTime; set => productionTime = value; }
         public Desk Desk { get => desk; set => desk = value; }
 

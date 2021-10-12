@@ -67,19 +67,7 @@ namespace MegaDesk
             }
             else
             {
-                //deskQuoteList = JsonConvert.DeserializeObject<List<DeskQuote>>(jsonData)
-                //         ?? new List<DeskQuote>();
                 deskQuoteList = JsonConvert.DeserializeObject<List<DeskQuote>>(jsonData);
-
-
-               
-
-                // read JSON directly from a file
-                //using (StreamReader file = File.OpenText(@"c:\videogames.json"))
-                //using (JsonTextReader reader = new JsonTextReader(file))
-                //{
-                //    JObject o2 = (JObject)JToken.ReadFrom(reader);
-                //}
             }
             deskQuoteList.Add(quote);
 
@@ -87,6 +75,9 @@ namespace MegaDesk
 
             //write string to file
             System.IO.File.WriteAllText(@"quotes.json", json);
+            MainMenu mainForm = new MainMenu();
+            mainForm.Show();
+            this.Hide();
         }
     }
 }

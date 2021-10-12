@@ -43,6 +43,7 @@ namespace MegaDesk
             this.prod = new System.Windows.Forms.ComboBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.nameInput = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.widthInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawersInput)).BeginInit();
@@ -275,5 +276,6 @@ namespace MegaDesk
         private System.Windows.Forms.ComboBox prod;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.TextBox nameInput;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
