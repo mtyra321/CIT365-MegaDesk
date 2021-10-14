@@ -33,6 +33,7 @@ namespace MegaDesk
             this.mainMenuBtn = new System.Windows.Forms.Button();
             this.FilterBox = new System.Windows.Forms.ComboBox();
             this.quoteGrid = new System.Windows.Forms.DataGridView();
+            this.resetButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.quoteGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,8 +69,11 @@ namespace MegaDesk
             "Veneer"});
             this.FilterBox.Location = new System.Drawing.Point(300, 28);
             this.FilterBox.Name = "FilterBox";
-            this.FilterBox.Size = new System.Drawing.Size(100, 21);
+            this.FilterBox.Size = new System.Drawing.Size(170, 21);
             this.FilterBox.TabIndex = 7;
+            this.FilterBox.SelectedIndexChanged += new System.EventHandler(this.FilterBox_SelectedIndexChanged);
+            this.FilterBox.DisplayMemberChanged += new System.EventHandler(this.FilterBox_DisplayMemberChanged);
+            this.FilterBox.Click += new System.EventHandler(this.FilterBox_Click);
             // 
             // quoteGrid
             // 
@@ -79,11 +83,23 @@ namespace MegaDesk
             this.quoteGrid.Size = new System.Drawing.Size(780, 375);
             this.quoteGrid.TabIndex = 8;
             // 
+            // resetButton
+            // 
+            this.resetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetButton.Location = new System.Drawing.Point(492, 20);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(84, 48);
+            this.resetButton.TabIndex = 9;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
             // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.quoteGrid);
             this.Controls.Add(this.FilterBox);
             this.Controls.Add(this.mainMenuBtn);
@@ -104,5 +120,6 @@ namespace MegaDesk
         private System.Windows.Forms.Button mainMenuBtn;
         private System.Windows.Forms.ComboBox FilterBox;
         private System.Windows.Forms.DataGridView quoteGrid;
+        private System.Windows.Forms.Button resetButton;
     }
 }
