@@ -66,5 +66,10 @@ namespace MegaDesk
                 }
         }
         }
+
+        private void quoteGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -64,6 +64,7 @@ namespace MegaDesk
             this.quoteGrid.Name = "quoteGrid";
             this.quoteGrid.Size = new System.Drawing.Size(800, 450);
             this.quoteGrid.TabIndex = 4;
+            this.quoteGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.quoteGrid_CellContentClick);
             // 
             // ViewAllQuotes
             // 

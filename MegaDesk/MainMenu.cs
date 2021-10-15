@@ -39,17 +39,23 @@ namespace MegaDesk
 
         private void addQuoteBtn_Click(object sender, EventArgs e)
         {
+            addForm = new AddQuote(this);
+
             addForm.Show();
             this.Hide();
         }
         private void viewQuoteBtn_Click(object sender, EventArgs e)
         {
+            viewForm = new ViewAllQuotes(this);
+
             viewForm.Show();
             this.Hide();
         }
 
         private void searchQuotesBtn_Click(object sender, EventArgs e)
         {
+            searchForm = new SearchQuotes(this);
+
             searchForm.Show();
             this.Hide();
         }

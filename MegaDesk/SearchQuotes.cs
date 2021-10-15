@@ -66,8 +66,10 @@ namespace MegaDesk
 
         private void SearchQuotes_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
             main.Show();
+            this.Hide();
+            return;
+
         }
 
         private void FilterBox_DisplayMemberChanged(object sender, EventArgs e)
@@ -82,8 +84,6 @@ namespace MegaDesk
 
         private void filter()
         {
-            
-
             quoteGrid.DataSource = deskQuoteList.Select(d => new
             {
                 Date = d.Date,
@@ -95,13 +95,7 @@ namespace MegaDesk
                 DeliveryType = d.ProductionTime,
                 QuoteAmount = d.TotalCost.ToString("c")
 
-            })
-                        .Where(d => d.SurfaceMaterial == FilterBox.Text)
-                .ToList();
-            //dv.DefaultView.RowFilter = string.Format("[SurfaceMaterial] LIKE '%{0}%'", FilterBox.SelectedItem);
-            //quoteGrid.DataSource = dv;
-            //            quoteGrid.Refresh();
-
+            }).Where(d => d.SurfaceMaterial == FilterBox.Text).ToList();
         }
 
         private void FilterBox_Click(object sender, EventArgs e)
